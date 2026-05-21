@@ -32,7 +32,11 @@ const translations = {
     "services.content": "هيكلة المحتوى",
     "services.launch": "دعم الإطلاق",
     "packages.kicker": "الباقات",
-    "packages.title": "باقات بسيطة وواضحة",
+    "packages.title": "ابدأ بعرض يناسب انطلاقتك",
+    "packages.featured.label": "العرض الافتتاحي",
+    "packages.featured.title": "اختر بداية موقعك الإلكتروني",
+    "packages.featured.text": "عرض سريع وواضح لبداية احترافية، ويمكنك مشاهدة بقية الباقات في صفحة العروض.",
+    "packages.more": "المزيد",
     "packages.starter.label": "للبداية السريعة",
     "packages.starter.one": "صفحة هبوط راقية",
     "packages.starter.two": "صياغة محتوى أساسي",
@@ -45,6 +49,11 @@ const translations = {
     "packages.creative.one": "هوية بصرية مصغرة",
     "packages.creative.two": "تصميم جرافيك للإطلاق",
     "packages.creative.three": "موقع وصفحة تحويل",
+    "offers.kicker": "العروض",
+    "offers.title": "اختر الباقة الأنسب لموقعك",
+    "offers.subtitle": "ثلاث باقات واضحة لتبدأ، تنمو، أو تطلق حضورًا رقميًا متكاملًا.",
+    "offers.whatsapp": "واتساب",
+    "offers.cta": "محتار أي باقة تناسبك؟",
     "process.kicker": "الطريقة",
     "process.title": "طريقة عمل واضحة",
     "process.one": "فهم الهدف",
@@ -58,7 +67,6 @@ const translations = {
     "cta.request": "أرسل طلبك",
     "floating.whatsapp": "واتساب",
     "footer.tagline": "Web & Creative Solutions",
-    "footer.domainLabel": "الدومين",
     "footer.locationLabel": "الموقع",
     "footer.location": "Saudi Arabia",
     "contact.kicker": "تواصل معنا",
@@ -108,7 +116,11 @@ const translations = {
     "services.content": "Content structure",
     "services.launch": "Launch support",
     "packages.kicker": "Packages",
-    "packages.title": "Simple, clear packages",
+    "packages.title": "Start with an offer made for your launch",
+    "packages.featured.label": "Opening offer",
+    "packages.featured.title": "Choose the start of your website",
+    "packages.featured.text": "A clear starter offer for a professional launch. Explore the rest of the offers on the offers page.",
+    "packages.more": "More",
     "packages.starter.label": "For a quick start",
     "packages.starter.one": "Premium landing page",
     "packages.starter.two": "Essential content writing",
@@ -121,6 +133,11 @@ const translations = {
     "packages.creative.one": "Mini visual identity",
     "packages.creative.two": "Launch graphic design",
     "packages.creative.three": "Website and conversion page",
+    "offers.kicker": "Offers",
+    "offers.title": "Choose the right package for your website",
+    "offers.subtitle": "Three clear offers to start, grow, or launch a complete digital presence.",
+    "offers.whatsapp": "WhatsApp",
+    "offers.cta": "Not sure which offer fits you?",
     "process.kicker": "Process",
     "process.title": "A clear way to work",
     "process.one": "Understand the goal",
@@ -134,7 +151,6 @@ const translations = {
     "cta.request": "Send request",
     "floating.whatsapp": "WhatsApp",
     "footer.tagline": "Web & Creative Solutions",
-    "footer.domainLabel": "Domain",
     "footer.locationLabel": "Location",
     "footer.location": "Saudi Arabia",
     "contact.kicker": "Contact",
@@ -215,44 +231,47 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
 
 const form = document.querySelector("#contactForm");
-const statusNode = form.querySelector(".form-status");
-const submitButton = form.querySelector("button[type='submit']");
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  statusNode.className = "form-status";
+if (form) {
+  const statusNode = form.querySelector(".form-status");
+  const submitButton = form.querySelector("button[type='submit']");
 
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    statusNode.textContent = translations[currentLang]["form.validation"];
-    statusNode.classList.add("error");
-    return;
-  }
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    statusNode.className = "form-status";
 
-  const originalText = submitButton.textContent;
-  submitButton.disabled = true;
-  submitButton.textContent = translations[currentLang]["form.loading"];
-
-  try {
-    const formData = new FormData(form);
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
-    });
-    const result = await response.json();
-
-    if (!response.ok || !result.success) {
-      throw new Error("Submission failed");
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      statusNode.textContent = translations[currentLang]["form.validation"];
+      statusNode.classList.add("error");
+      return;
     }
 
-    form.reset();
-    statusNode.textContent = translations[currentLang]["form.success"];
-    statusNode.classList.add("success");
-  } catch (error) {
-    statusNode.textContent = translations[currentLang]["form.error"];
-    statusNode.classList.add("error");
-  } finally {
-    submitButton.disabled = false;
-    submitButton.textContent = originalText;
-  }
-});
+    const originalText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = translations[currentLang]["form.loading"];
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error("Submission failed");
+      }
+
+      form.reset();
+      statusNode.textContent = translations[currentLang]["form.success"];
+      statusNode.classList.add("success");
+    } catch (error) {
+      statusNode.textContent = translations[currentLang]["form.error"];
+      statusNode.classList.add("error");
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalText;
+    }
+  });
+}

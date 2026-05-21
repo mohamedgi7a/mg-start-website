@@ -516,6 +516,120 @@ h1 {
   line-height: 2.1;
 }
 
+.offer-preview {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.55fr) minmax(320px, 1fr);
+  gap: clamp(20px, 4vw, 46px);
+  align-items: center;
+  padding: clamp(18px, 3vw, 30px);
+  border: 1px solid rgba(11, 42, 85, 0.1);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(124, 58, 237, 0.12), transparent 28%),
+    radial-gradient(circle at 86% 12%, rgba(37, 99, 235, 0.13), transparent 30%),
+    rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.offer-preview-copy {
+  display: grid;
+  gap: 18px;
+  justify-items: start;
+  padding: clamp(12px, 2vw, 28px);
+}
+
+.offer-preview-copy p {
+  margin-bottom: 0;
+  color: var(--secondary);
+  font-weight: 900;
+}
+
+.offer-preview-copy h3 {
+  margin-bottom: 0;
+  color: var(--primary);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.25;
+}
+
+.offer-preview-copy span {
+  max-width: 440px;
+  color: var(--soft);
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.9;
+}
+
+.offer-preview-image {
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 18px 55px rgba(16, 33, 63, 0.12);
+}
+
+.offer-preview-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.35s ease;
+}
+
+.offer-preview-image:hover img {
+  transform: scale(1.025);
+}
+
+.offers-hero {
+  padding-bottom: 24px;
+}
+
+.offers-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 30px);
+  align-items: start;
+}
+
+.offer-card-large {
+  overflow: hidden;
+  border: 1px solid rgba(11, 42, 85, 0.1);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.offer-card-large img {
+  width: 100%;
+  height: auto;
+}
+
+.offer-actions {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px;
+}
+
+.offer-actions .btn {
+  pointer-events: auto;
+}
+
+.offer-actions h2 {
+  margin-bottom: 0;
+  color: var(--primary);
+  font-size: 1.45rem;
+  letter-spacing: 0.08em;
+}
+
+.prime-offer {
+  background: linear-gradient(135deg, rgba(11, 42, 85, 0.96), rgba(14, 14, 18, 0.98));
+}
+
+.prime-offer .offer-actions h2 {
+  color: #d6ad55;
+}
+
 .timeline {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -888,6 +1002,8 @@ h1 {
   .mini-grid,
   .service-grid,
   .package-grid,
+  .offer-preview,
+  .offers-gallery,
   .timeline,
   .portfolio-grid,
   .contact-layout {
@@ -929,6 +1045,8 @@ h1 {
   .mini-grid,
   .service-grid,
   .package-grid,
+  .offer-preview,
+  .offers-gallery,
   .timeline,
   .portfolio-grid,
   .contact-layout,
@@ -956,6 +1074,19 @@ h1 {
 
   .package-card.featured {
     transform: none;
+  }
+
+  .offer-preview-copy {
+    order: 2;
+  }
+
+  .offer-preview-image {
+    order: 1;
+  }
+
+  .offer-actions {
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .cta-box,
