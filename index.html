@@ -14,7 +14,18 @@
       content="خدمات رقمية هادئة وراقية لبناء موقعك وهويتك الرقمية."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mg-start.com/" />
+    <meta property="og:image" content="https://mg-start.com/assets/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MG START | تصميم مواقع وهوية بصرية" />
+    <meta
+      name="twitter:description"
+      content="حلول تصميم مواقع، صفحات هبوط، وهوية بصرية للشركات الناشئة والأعمال في السعودية."
+    />
+    <meta name="twitter:image" content="https://mg-start.com/assets/logo.png" />
     <title>MG START | Web & Creative Solutions</title>
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="apple-touch-icon" href="assets/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,6 +33,54 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://mg-start.com/#organization",
+            "name": "MG START",
+            "url": "https://mg-start.com/",
+            "logo": "https://mg-start.com/assets/logo.png",
+            "description": "MG START تقدم حلول تصميم مواقع، صفحات هبوط، هوية بصرية، وتصميم إبداعي للشركات الناشئة والأعمال في السعودية.",
+            "sameAs": [
+              "https://www.facebook.com/mg.start.2026"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+966590947866",
+              "contactType": "customer service",
+              "areaServed": "SA",
+              "availableLanguage": ["Arabic", "English"]
+            }
+          },
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://mg-start.com/#localbusiness",
+            "name": "MG START",
+            "image": "https://mg-start.com/assets/logo.png",
+            "url": "https://mg-start.com/",
+            "telephone": "+966590947866",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "SA"
+            },
+            "priceRange": "$$"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mg-start.com/#website",
+            "url": "https://mg-start.com/",
+            "name": "MG START",
+            "publisher": {
+              "@id": "https://mg-start.com/#organization"
+            },
+            "inLanguage": "ar"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="intro" aria-hidden="true">
@@ -71,7 +130,6 @@
     <main>
       <section class="hero section-pad">
         <div class="hero-heading reveal">
-          <p class="eyebrow">MG START</p>
           <h1 data-i18n="hero.title">ماذا تريد أن تبني اليوم؟</h1>
           <p data-i18n="hero.subtitle">اختر المسار المناسب وسنرشدك للحل المناسب.</p>
           <div class="hero-mark" aria-hidden="true"></div>
@@ -186,15 +244,31 @@
         </div>
       </section>
 
-      <section class="section-pad portfolio">
+      <section class="section-pad portfolio" id="portfolio">
         <div class="section-title reveal">
           <p class="eyebrow" data-i18n="portfolio.kicker">الأعمال</p>
-          <h2 data-i18n="portfolio.title">نماذج أعمال قيد الإضافة</h2>
+          <h2 data-i18n="portfolio.title">نماذج أعمالنا</h2>
         </div>
         <div class="portfolio-grid">
-          <article class="portfolio-card reveal"></article>
-          <article class="portfolio-card reveal"></article>
-          <article class="portfolio-card reveal"></article>
+          <article class="portfolio-card portfolio-card-featured reveal">
+            <a class="project-link" href="https://success-step.com" target="_blank" rel="noreferrer" aria-label="Visit Success Step website">
+              <div class="project-preview project-preview-image" aria-hidden="true">
+                <img src="assets/success-step-preview.png" alt="" loading="lazy" />
+              </div>
+              <div class="project-copy">
+                <span class="project-type" data-i18n="portfolio.success.type">موقع إلكتروني</span>
+                <h3 data-i18n="portfolio.success.title">خطوة نجاح</h3>
+                <p data-i18n="portfolio.success.text">تصميم موقع تعريفي احترافي لشركة خطوة نجاح، بتجربة واضحة وهوية رقمية مرتبة.</p>
+                <span class="project-visit" data-i18n="portfolio.success.link">زيارة الموقع</span>
+              </div>
+            </a>
+          </article>
+          <article class="portfolio-card portfolio-placeholder reveal">
+            <span data-i18n="portfolio.placeholder.one">عمل جديد قريباً</span>
+          </article>
+          <article class="portfolio-card portfolio-placeholder reveal">
+            <span data-i18n="portfolio.placeholder.two">مساحة لمشروع قادم</span>
+          </article>
         </div>
       </section>
 
