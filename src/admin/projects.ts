@@ -6,6 +6,7 @@ import { checkboxValue, escapeHtml, formValue, numberValue } from "../lib/html";
 import type { Project } from "../types/supabase";
 
 const supabase = getSupabaseClient();
+const projectsTableApi = () => supabase.from("projects") as any;
 const table = document.querySelector<HTMLTableSectionElement>("#projectsTable");
 const editor = document.querySelector<HTMLElement>("#projectEditor");
 const form = document.querySelector<HTMLFormElement>("#projectForm");
@@ -144,7 +145,7 @@ async function saveProject(event: SubmitEvent) {
       sort_order: numberValue(form, "sort_order")
     };
     const id = formValue(form, "id");
-    const result = id ? await supabase.from("projects").update(payload).eq("id", id) : await supabase.from("projects").insert(payload);
+    const result = id ? await projectsTableApi().update(payload).eq("id", id) : await projectsTableApi().insert(payload);
     if (result.error) throw result.error;
     setStatus("تم حفظ المشروع بنجاح.", "success");
     if (editor) editor.hidden = true;
@@ -169,7 +170,7 @@ async function handleTableClick(event: MouseEvent) {
   if (publishId) {
     const project = projects.find((item) => item.id === publishId);
     if (!project) return;
-    const { error } = await supabase.from("projects").update({ is_published: !project.is_published }).eq("id", publishId);
+    const { error } = await projectsTableApi().update({ is_published: !project.is_published }).eq("id", publishId);
     if (error) setStatus(error.message, "error");
     else {
       setStatus("تم تحديث حالة النشر.", "success");
@@ -177,7 +178,7 @@ async function handleTableClick(event: MouseEvent) {
     }
   }
   if (deleteId && window.confirm("هل تريد حذف هذا المشروع؟")) {
-    const { error } = await supabase.from("projects").delete().eq("id", deleteId);
+    const { error } = await projectsTableApi().delete().eq("id", deleteId);
     if (error) setStatus(error.message, "error");
     else {
       setStatus("تم حذف المشروع.", "success");

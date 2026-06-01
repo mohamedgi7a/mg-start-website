@@ -6,6 +6,7 @@ import { checkboxValue, escapeHtml, formValue, nullableNumberValue, numberValue 
 import type { Offer } from "../types/supabase";
 
 const supabase = getSupabaseClient();
+const offersTable = () => supabase.from("offers") as any;
 const table = document.querySelector<HTMLTableSectionElement>("#offersTable");
 const editor = document.querySelector<HTMLElement>("#offerEditor");
 const form = document.querySelector<HTMLFormElement>("#offerForm");
@@ -186,7 +187,7 @@ async function saveOffer(event: SubmitEvent) {
       sort_order: numberValue(form, "sort_order")
     };
     const id = formValue(form, "id");
-    const result = id ? await supabase.from("offers").update(payload).eq("id", id) : await supabase.from("offers").insert(payload);
+    const result = id ? await offersTable().update(payload).eq("id", id) : await offersTable().insert(payload);
     if (result.error) throw result.error;
     setStatus("تم حفظ العرض بنجاح.", "success");
     if (editor) editor.hidden = true;
@@ -211,7 +212,7 @@ async function handleTableClick(event: MouseEvent) {
   if (publishId) {
     const offer = offers.find((item) => item.id === publishId);
     if (!offer) return;
-    const { error } = await supabase.from("offers").update({ is_published: !offer.is_published }).eq("id", publishId);
+    const { error } = await offersTable().update({ is_published: !offer.is_published }).eq("id", publishId);
     if (error) setStatus(error.message, "error");
     else {
       setStatus("تم تحديث حالة النشر.", "success");
@@ -219,7 +220,7 @@ async function handleTableClick(event: MouseEvent) {
     }
   }
   if (deleteId && window.confirm("هل تريد حذف هذا العرض؟")) {
-    const { error } = await supabase.from("offers").delete().eq("id", deleteId);
+    const { error } = await offersTable().delete().eq("id", deleteId);
     if (error) setStatus(error.message, "error");
     else {
       setStatus("تم حذف العرض.", "success");
