@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MG START | لوحة التحكم</title>
+    <link rel="icon" type="image/png" href="../assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <img src="../assets/logo.png" alt="MG START" />
+        <nav>
+          <a class="is-active" href="/admin/">الرئيسية</a>
+          <a href="/admin/offers/">إدارة العروض</a>
+          <a href="/admin/projects/">إدارة المشاريع</a>
+          <button type="button" data-admin-logout>تسجيل الخروج</button>
+        </nav>
+      </aside>
+      <main class="admin-main">
+        <header class="admin-header">
+          <div>
+            <p>MG START CMS</p>
+            <h1>لوحة التحكم</h1>
+          </div>
+          <a class="btn btn-secondary btn-small" href="../index.html">عرض الموقع</a>
+        </header>
+        <div class="admin-message" data-admin-status></div>
+        <section class="admin-cards" id="dashboardCards">
+          <article><span>إجمالي العروض</span><strong data-count="offers-total">...</strong></article>
+          <article><span>العروض المنشورة</span><strong data-count="offers-published">...</strong></article>
+          <article><span>إجمالي المشاريع</span><strong data-count="projects-total">...</strong></article>
+          <article><span>المشاريع المنشورة</span><strong data-count="projects-published">...</strong></article>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/admin/dashboard.ts"></script>
+  </body>
+</html>

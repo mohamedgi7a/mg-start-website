@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MG START | إدارة العروض</title>
+    <link rel="icon" type="image/png" href="../assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <img src="../assets/logo.png" alt="MG START" />
+        <nav>
+          <a href="/admin/">الرئيسية</a>
+          <a class="is-active" href="/admin/offers/">إدارة العروض</a>
+          <a href="/admin/projects/">إدارة المشاريع</a>
+          <button type="button" data-admin-logout>تسجيل الخروج</button>
+        </nav>
+      </aside>
+      <main class="admin-main">
+        <header class="admin-header">
+          <div>
+            <p>العروض</p>
+            <h1>إدارة العروض</h1>
+          </div>
+          <button class="btn btn-primary btn-small" type="button" data-new-offer>إضافة عرض</button>
+        </header>
+        <div class="admin-message" data-admin-status></div>
+        <section class="admin-panel">
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>العرض</th>
+                  <th>السعر</th>
+                  <th>الحالة</th>
+                  <th>الترتيب</th>
+                  <th>إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="offersTable">
+                <tr><td colspan="5">جاري التحميل...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="admin-editor" id="offerEditor" hidden>
+          <form id="offerForm">
+            <input type="hidden" name="id" />
+            <input type="hidden" name="image_path" />
+            <div class="admin-editor-head">
+              <h2 data-editor-title>إضافة عرض</h2>
+              <button type="button" class="admin-close" data-close-editor>إغلاق</button>
+            </div>
+            <div class="admin-form-grid">
+              <label>slug *<input name="slug" required /></label>
+              <label>الاسم العربي *<input name="name_ar" required /></label>
+              <label>English name<input name="name_en" /></label>
+              <label>العنوان العربي<input name="title_ar" /></label>
+              <label>English title<input name="title_en" /></label>
+              <label>السعر<input name="price" type="number" step="0.01" /></label>
+              <label>السعر القديم<input name="old_price" type="number" step="0.01" /></label>
+              <label>العملة<input name="currency" value="SAR" /></label>
+              <label>شارة عربية<input name="badge_ar" /></label>
+              <label>English badge<input name="badge_en" /></label>
+              <label>رابط CTA<input name="cta_url" type="url" /></label>
+              <label>CTA عربي<input name="cta_label_ar" value="اطلب الآن" /></label>
+              <label>CTA English<input name="cta_label_en" value="Order Now" /></label>
+              <label>ترتيب العرض<input name="sort_order" type="number" value="0" /></label>
+              <label>Alt عربي<input name="image_alt_ar" /></label>
+              <label>Alt English<input name="image_alt_en" /></label>
+              <label class="admin-wide">الوصف العربي<textarea name="description_ar"></textarea></label>
+              <label class="admin-wide">English description<textarea name="description_en"></textarea></label>
+              <label class="admin-wide">رسالة واتساب عربية<textarea name="whatsapp_text_ar"></textarea></label>
+              <label class="admin-wide">English WhatsApp message<textarea name="whatsapp_text_en"></textarea></label>
+              <div class="admin-wide feature-editor" data-feature-editor="features_ar">
+                <div><strong>المميزات العربية</strong><button type="button" data-add-feature="features_ar">إضافة ميزة</button></div>
+                <div data-feature-list="features_ar"></div>
+              </div>
+              <div class="admin-wide feature-editor" data-feature-editor="features_en">
+                <div><strong>English features</strong><button type="button" data-add-feature="features_en">Add feature</button></div>
+                <div data-feature-list="features_en"></div>
+              </div>
+              <label class="admin-wide">صورة العرض<input name="image" type="file" accept="image/png,image/jpeg,image/webp" /></label>
+              <div class="admin-wide image-preview" data-image-preview></div>
+              <label class="admin-check"><input name="is_featured" type="checkbox" /> عرض مميز</label>
+              <label class="admin-check"><input name="is_published" type="checkbox" checked /> منشور</label>
+            </div>
+            <div class="admin-actions">
+              <button class="btn btn-primary" type="submit">حفظ العرض</button>
+              <button class="btn btn-secondary" type="button" data-close-editor>إلغاء</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/admin/offers.ts"></script>
+  </body>
+</html>

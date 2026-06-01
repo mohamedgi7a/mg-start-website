@@ -45,7 +45,9 @@
             "logo": "https://mg-start.com/assets/logo.png",
             "description": "MG START تقدم حلول تصميم مواقع، صفحات هبوط، هوية بصرية، وتصميم إبداعي للشركات الناشئة والأعمال في السعودية.",
             "sameAs": [
-              "https://www.facebook.com/mg.start.2026"
+              "https://www.facebook.com/mg.start.2026",
+              "https://www.instagram.com/mg.start.26",
+              "https://www.snapchat.com/@mg.start26"
             ],
             "contactPoint": {
               "@type": "ContactPoint",
@@ -103,6 +105,7 @@
         <div class="nav-panel">
           <a href="#services" data-i18n="nav.services">خدماتنا</a>
           <a href="#packages" data-i18n="nav.packages">الباقات</a>
+          <a href="projects/" data-i18n="nav.projects">المشاريع</a>
           <a href="#about" data-i18n="nav.about">من نحن</a>
           <a href="#pricing" data-i18n="nav.pricing">الأسعار</a>
           <a href="#contact" data-i18n="nav.contact">تواصل معنا</a>
@@ -246,45 +249,14 @@
 
       <section class="section-pad portfolio" id="portfolio">
         <div class="section-title reveal">
-          <p class="eyebrow" data-i18n="portfolio.kicker">الأعمال</p>
-          <h2 data-i18n="portfolio.title">نماذج أعمالنا</h2>
+          <p class="eyebrow" data-i18n="portfolio.kicker">المشاريع</p>
+          <h2 data-i18n="portfolio.title">نماذج مشاريعنا</h2>
         </div>
-        <div class="portfolio-grid">
-          <article class="portfolio-card portfolio-card-featured reveal">
-            <a class="project-link" href="https://success-step.com" target="_blank" rel="noreferrer" aria-label="Visit Success Step website">
-              <div class="project-preview project-preview-image" aria-hidden="true">
-                <img src="assets/success-step-preview.png" alt="" loading="lazy" />
-              </div>
-              <div class="project-copy">
-                <span class="project-type" data-i18n="portfolio.success.type">موقع إلكتروني</span>
-                <h3 data-i18n="portfolio.success.title">خطوة نجاح</h3>
-                <p data-i18n="portfolio.success.text">تصميم موقع تعريفي احترافي لشركة خطوة نجاح، بتجربة واضحة وهوية رقمية مرتبة.</p>
-                <span class="project-visit" data-i18n="portfolio.success.link">زيارة الموقع</span>
-              </div>
-            </a>
-          </article>
-          <article class="portfolio-card portfolio-card-featured reveal">
-            <a
-              class="project-link"
-              href="https://drive.google.com/file/d/1iQ1qWvLnG2ITt8qi1wOz7R0pARr5ku9_/view?usp=sharing"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="View Renas visual identity PDF"
-            >
-              <div class="project-preview project-preview-image renas-preview" aria-hidden="true">
-                <img src="assets/renas-preview.png" alt="" loading="lazy" />
-              </div>
-              <div class="project-copy">
-                <span class="project-type renas-type" data-i18n="portfolio.renas.type">هوية بصرية</span>
-                <h3 data-i18n="portfolio.renas.title">ريناس</h3>
-                <p data-i18n="portfolio.renas.text">تنفيذ هوية بصرية كاملة بعناصر فاخرة، ألوان مميزة، ودليل استخدام منظم للعلامة.</p>
-                <span class="project-visit" data-i18n="portfolio.renas.link">عرض ملف الهوية</span>
-              </div>
-            </a>
-          </article>
-          <article class="portfolio-card portfolio-placeholder reveal">
-            <span data-i18n="portfolio.placeholder.two">مساحة لمشروع قادم</span>
-          </article>
+        <div class="portfolio-grid" id="homeProjectsList" aria-live="polite">
+          <div class="cms-state">جاري تحميل المشاريع...</div>
+        </div>
+        <div class="section-action reveal">
+          <a class="btn btn-secondary" href="projects/" data-i18n="portfolio.all">عرض كل المشاريع</a>
         </div>
       </section>
 
@@ -386,9 +358,12 @@
           WhatsApp
         </a>
         <a href="https://www.facebook.com/mg.start.2026" target="_blank" rel="noreferrer">Facebook</a>
+        <a href="https://www.instagram.com/mg.start.26" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://www.snapchat.com/@mg.start26" target="_blank" rel="noreferrer">Snapchat</a>
       </div>
     </footer>
 
     <script src="app.js"></script>
+    <script type="module" src="/src/pages/home-projects.ts"></script>
   </body>
 </html>

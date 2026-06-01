@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="مشاريع MG START في تصميم المواقع والهويات البصرية." />
+    <meta name="theme-color" content="#F8FAFF" />
+    <title>MG START | المشاريع</title>
+    <link rel="icon" type="image/png" href="/assets/logo.png" />
+    <link rel="apple-touch-icon" href="/assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <nav class="navbar" aria-label="Main navigation">
+        <a class="brand" href="/index.html#top" aria-label="MG START">
+          <img src="/assets/logo.png" alt="MG START Web & Creative Solutions" />
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+
+        <div class="nav-panel">
+          <a href="/index.html#services" data-i18n="nav.services">خدماتنا</a>
+          <a href="/index.html#packages" data-i18n="nav.packages">الباقات</a>
+          <a href="/projects/" data-i18n="nav.projects">المشاريع</a>
+          <a href="/index.html#about" data-i18n="nav.about">من نحن</a>
+          <a href="/index.html#contact" data-i18n="nav.contact">تواصل معنا</a>
+        </div>
+
+        <div class="nav-actions">
+          <div class="language-toggle" aria-label="Language switcher">
+            <button type="button" class="lang-btn is-active" data-lang="ar">AR</button>
+            <span>|</span>
+            <button type="button" class="lang-btn" data-lang="en">EN</button>
+          </div>
+          <a
+            class="btn btn-primary btn-small"
+            href="https://api.whatsapp.com/send?phone=966590947866&text=Hello%20MG%20START%2C%20I%20would%20like%20to%20start%20a%20website%20project."
+            target="_blank"
+            rel="noreferrer"
+            data-i18n="nav.whatsapp"
+          >
+            واتساب
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="offers-hero section-pad">
+        <div class="section-title reveal">
+          <p class="eyebrow" data-i18n="projects.kicker">المشاريع</p>
+          <h1 data-i18n="projects.title">مشاريع بنيناها بعناية</h1>
+          <p data-i18n="projects.subtitle">نماذج من مواقع وهويات رقمية صممتها MG START لتبدأ العلامات بثقة.</p>
+        </div>
+      </section>
+
+      <section class="section-pad compact">
+        <div class="portfolio-grid" id="projectsList" aria-live="polite">
+          <div class="cms-state">جاري تحميل المشاريع...</div>
+        </div>
+      </section>
+    </main>
+
+    <a
+      class="floating-whatsapp"
+      href="https://api.whatsapp.com/send?phone=966590947866&text=Hello%20MG%20START%2C%20I%20would%20like%20to%20start%20a%20website%20project."
+      target="_blank"
+      rel="noreferrer"
+      aria-label="WhatsApp"
+    >
+      <span class="wa-icon" aria-hidden="true">
+        <svg viewBox="0 0 32 32" focusable="false">
+          <path d="M16.02 3.2A12.66 12.66 0 0 0 5.2 22.42L3.6 28.4l6.12-1.56A12.66 12.66 0 1 0 16.02 3.2Zm0 2.26a10.4 10.4 0 0 1 8.84 15.86 10.38 10.38 0 0 1-13.9 3.32l-.44-.26-3.64.93.96-3.5-.28-.46A10.4 10.4 0 0 1 16.02 5.46Z" />
+        </svg>
+      </span>
+      <span data-i18n="floating.whatsapp">واتساب</span>
+    </a>
+
+    <footer class="footer">
+      <div class="footer-brand">
+        <img src="/assets/logo.png" alt="MG START Web & Creative Solutions" />
+        <p data-i18n="footer.tagline">Web & Creative Solutions</p>
+      </div>
+      <div class="footer-info">
+        <p>mg-start.com</p>
+        <span data-i18n="footer.locationLabel">الموقع</span>
+        <p data-i18n="footer.location">Saudi Arabia</p>
+      </div>
+      <div class="social">
+        <a href="https://api.whatsapp.com/send?phone=966590947866" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a href="https://www.facebook.com/mg.start.2026" target="_blank" rel="noreferrer">Facebook</a>
+        <a href="https://www.instagram.com/mg.start.26" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://www.snapchat.com/@mg.start26" target="_blank" rel="noreferrer">Snapchat</a>
+      </div>
+    </footer>
+
+    <script src="/app.js"></script>
+    <script type="module" src="/src/pages/projects.ts"></script>
+  </body>
+</html>

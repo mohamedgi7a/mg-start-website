@@ -2,6 +2,7 @@ const translations = {
   ar: {
     "nav.services": "خدماتنا",
     "nav.packages": "الباقات",
+    "nav.projects": "المشاريع",
     "nav.about": "من نحن",
     "nav.pricing": "الأسعار",
     "nav.contact": "تواصل معنا",
@@ -60,8 +61,8 @@ const translations = {
     "process.two": "تخطيط الهيكل",
     "process.three": "تصميم التجربة",
     "process.four": "الإطلاق والتحسين",
-    "portfolio.kicker": "الأعمال",
-    "portfolio.title": "نماذج أعمالنا",
+    "portfolio.kicker": "المشاريع",
+    "portfolio.title": "نماذج مشاريعنا",
     "portfolio.success.type": "موقع إلكتروني",
     "portfolio.success.title": "خطوة نجاح",
     "portfolio.success.text": "تصميم موقع تعريفي احترافي لشركة خطوة نجاح، بتجربة واضحة وهوية رقمية مرتبة.",
@@ -96,6 +97,7 @@ const translations = {
   en: {
     "nav.services": "Services",
     "nav.packages": "Packages",
+    "nav.projects": "Projects",
     "nav.about": "About",
     "nav.pricing": "Pricing",
     "nav.contact": "Contact",
@@ -154,8 +156,8 @@ const translations = {
     "process.two": "Plan the structure",
     "process.three": "Design the experience",
     "process.four": "Launch and improve",
-    "portfolio.kicker": "Portfolio",
-    "portfolio.title": "Our Work",
+    "portfolio.kicker": "Projects",
+    "portfolio.title": "Our Projects",
     "portfolio.success.type": "Website",
     "portfolio.success.title": "Success Step",
     "portfolio.success.text": "A professional company website for Success Step, designed with a clear experience and polished digital presence.",
@@ -188,6 +190,15 @@ const translations = {
     "form.validation": "Please complete the required fields correctly."
   }
 };
+
+translations.ar["projects.kicker"] = "المشاريع";
+translations.ar["projects.title"] = "مشاريع بنيناها بعناية";
+translations.ar["projects.subtitle"] = "نماذج من مواقع وهويات رقمية صممتها MG START لتبدأ العلامات بثقة.";
+translations.ar["portfolio.all"] = "عرض كل المشاريع";
+translations.en["projects.kicker"] = "Projects";
+translations.en["projects.title"] = "Projects built with care";
+translations.en["projects.subtitle"] = "Selected websites and digital identities designed by MG START for confident launches.";
+translations.en["portfolio.all"] = "View all projects";
 
 let currentLang = "ar";
 
