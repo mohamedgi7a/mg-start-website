@@ -231,20 +231,53 @@ const header = document.querySelector(".site-header");
 const setHeaderState = () => {
   header.classList.toggle("is-scrolled", window.scrollY > 10);
 };
+let headerScrollTicking = false;
+
+const requestHeaderState = () => {
+  if (headerScrollTicking) return;
+  headerScrollTicking = true;
+  window.requestAnimationFrame(() => {
+    setHeaderState();
+    headerScrollTicking = false;
+  });
+};
+
 setHeaderState();
-window.addEventListener("scroll", setHeaderState, { passive: true });
+window.addEventListener("scroll", requestHeaderState, { passive: true });
 
 const menuToggle = document.querySelector(".menu-toggle");
-menuToggle.addEventListener("click", () => {
+const closeMenu = () => {
+  document.body.classList.remove("menu-open");
+  menuToggle.setAttribute("aria-expanded", "false");
+};
+
+menuToggle.addEventListener("click", (event) => {
+  event.stopPropagation();
   const isOpen = document.body.classList.toggle("menu-open");
   menuToggle.setAttribute("aria-expanded", String(isOpen));
 });
 
 document.querySelectorAll(".nav-panel a, .nav-actions a").forEach((link) => {
-  link.addEventListener("click", () => {
-    document.body.classList.remove("menu-open");
-    menuToggle.setAttribute("aria-expanded", "false");
-  });
+  link.addEventListener("click", closeMenu);
+});
+
+document.addEventListener("pointerdown", (event) => {
+  if (!document.body.classList.contains("menu-open")) return;
+  const target = event.target;
+  if (!(target instanceof Element)) return;
+
+  const clickedInsideMenu =
+    target.closest(".nav-panel") || target.closest(".nav-actions") || target.closest(".menu-toggle");
+
+  if (!clickedInsideMenu) {
+    closeMenu();
+  }
+}, true);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && document.body.classList.contains("menu-open")) {
+    closeMenu();
+  }
 });
 
 const observer = new IntersectionObserver(
