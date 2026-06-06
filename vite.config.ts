@@ -7,6 +7,7 @@ export default defineConfig({
         main: "index.html",
         homeProjects: "src/pages/home-projects.ts",
         offers: "offers.html",
+        mohamedAli: "Mohamed-Ali/index.html",
         projects: "projects/index.html",
         projectsLegacy: "projects.html",
         adminLogin: "admin/login/index.html",
